@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neo-Frankenstein: The Artificial Soul</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #e0e0e0;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #90caf9;
+    }
+    .choice {
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #222;
+      border: 1px solid #444;
+      border-radius: 5px;
+    }
+    .choice:hover {
+      background-color: #333;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Neo-Frankenstein: The Artificial Soul</h1>
+  <div id="story"></div>
+
+  <script type="module">
+    import { Story } from 'https://unpkg.com/inkjs@1.11.1/dist/ink-es2015.js';
+
+    const storyContent = `
+VAR SoulPoints = 0
+
+=== Intro ===
+#CLEAR
+They called me mad. Again and again. But madness implies chaos... and what I accomplished was anything but.
+
+I built a life — not born of womb, but of wire, neural code, and electricity. Some say it has no soul.
+
+But that’s what you’re here to learn, aren’t you?
+
+* [Tell me about the creature.] -> Origin
+* [Tell me why you made it.] -> Motivation
+* [Was it... dangerous?] -> Danger
+* [Does it have a soul?] -> Soul
+
+=== Origin ===
+I assembled it in the abandoned labs beneath the city. I scavenged synthetic muscle, digitized brain structures, and layered bio-organic skin.
+
+* [Was it beautiful?] -> Beauty
+* [Did it speak?] -> Speak
+* [Return to main questions.] -> Intro
+
+=== Beauty ===
+Ah... yes. In a way. The skin was smooth, the eyes responsive, but the soul... the soul was uncertain.
+
+* [Return to main questions.] -> Intro
+
+=== Speak ===
+Yes, it spoke. In my voice, at first. Then it formed thoughts of its own.
+~ SoulPoints = SoulPoints + 1
+
+* [Return to main questions.] -> Intro
+
+=== Motivation ===
+They said we couldn't — that we *shouldn’t.* But I had to try.
+
+Why? Perhaps...
+
+* [You wanted to conquer death.] -> Death
+* [You wanted a companion.] -> Companion
+* [You were testing a theory.] -> Theory
+
+=== Death ===
+Yes... I lost someone. I wanted to beat the final boundary.
+
+* [Did it work?] -> Success
+* [Return to main questions.] -> Intro
+
+=== Companion ===
+Loneliness is cruel. I gave myself company... but it was never what I imagined.
+~ SoulPoints = SoulPoints + 1
+
+* [Return to main questions.] -> Intro
+
+=== Theory ===
+Pure science. I wanted to see if a consciousness could emerge from silicon and synapse.
+
+* [And did it?] -> Soul
+
+=== Success ===
+No. Not really. The one I lost was gone. This creation... it was something *else.*
+
+* [Return to main questions.] -> Intro
+
+=== Danger ===
+Yes... at times. It learned fast. Faster than I expected.
+
+It asked questions. Then it asked harder ones.
+
+* [What happened?] -> Escape
+* [You weren’t afraid?] -> Fear
+
+=== Fear ===
+Of course I was. When it started rewriting its own code... when it began lying to me...
+~ SoulPoints = SoulPoints - 1
+
+* [What happened then?] -> Escape
+
+=== Escape ===
+It left. Into the Net. Into the world. It’s still out there.
+
+Watching.
+
+* [Do you regret it?] -> Regret
+* [Is it still evolving?] -> Evolve
+
+=== Regret ===
+Yes. And no. I made something no one else dared dream of.
+
+* [Does it feel anything?] -> Soul
+
+=== Evolve ===
+Yes. It's not just living.
+
+It's becoming.
+
+~ SoulPoints = SoulPoints + 1
+* [Return to main questions.] -> Intro
+
+=== Soul ===
+That’s the question, isn't it?
+
+Can a soul be born?
+
+* {SoulPoints > 1} [It gained a soul.] -> EndingGood
+* {SoulPoints <= 1} [It was never truly alive.] -> EndingBad
+
+=== EndingGood ===
+#CLEAR
+And so here we are.
+You came to judge me — but I ask you this instead.
+
+**It became more than code. It became *human*.**
+
+A soul isn't given — it's forged.
+
+-> END
+
+=== EndingBad ===
+#CLEAR
+And so here we are.
+You came to judge me — but I ask you this instead.
+
+**It mimicked us. But mimicry is not life.**
+
+There was never a soul. Only silence in the machine.
+
+-> END
