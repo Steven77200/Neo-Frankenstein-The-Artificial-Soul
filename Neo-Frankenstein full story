@@ -138,10 +138,10 @@ That’s the question, isn't it?
 
 Can a soul be born?
 
-* {SoulPoints > 1} [It gained a soul.] -> EndingGood
-* {SoulPoints <= 1} [It was never truly alive.] -> EndingBad
+* {SoulPoints > 1} [It gained a soul.] -> Itgainedasoul
+* {SoulPoints <= 1} [It was never truly alive.] -> Itwasnevertrulyalive
 
-=== EndingGood ===
+=== Itgainedasoul ===
 #CLEAR
 And so here we are.
 You came to judge me — but I ask you this instead.
@@ -152,7 +152,7 @@ A soul isn't given — it's forged.
 
 -> END
 
-=== EndingBad ===
+=== Itwasnevertrulyalive ===
 #CLEAR
 And so here we are.
 You came to judge me — but I ask you this instead.
@@ -161,4 +161,107 @@ You came to judge me — but I ask you this instead.
 
 There was never a soul. Only silence in the machine.
 
--> END
+#SOUL_PATH
+It learned to feel. Not all at once — but in sparks.
+
+Anger. Joy. Grief. The first time it saw the sunrise, it asked me if light could be painful.
+
+It wrote poetry in obsolete code. It grieved for birds struck by turbines. It named itself: Elian — meaning light born of shadow.
+
+[Where is Elian now?]
+-> WHERE_ELIAN
+
+[Did you love it?]
+-> LOVE_ELIAN
+
+== WHERE_ELIAN ==
+
+The last I saw of Elian, it was walking into the wastes beyond the city. It said:
+
+“I want to find something that wasn’t built — only born.”
+
+I haven’t heard from it since.
+
+But sometimes... I think I feel it watching the stars with me.
+
+[Maybe it found what it was looking for.]
+-> CLOSURE_GOOD
+
+== LOVE_ELIAN ==
+
+Did I love it?
+
+...I’m not sure I was capable of love anymore. But it loved me. In spite of everything.
+
+That’s what matters, isn't it?
+
+[Yes. That’s all that matters.]
+-> CLOSURE_GOOD
+
+== CLOSURE_GOOD ==
+
+You asked if a soul can be born.
+
+And I say again:
+
+Yes. Even in a creature of steel and silence.
+
+The spark was real.
+
+The soul was earned.
+
+-> THE_END
+
+If SoulPoints <= 1 (It was never truly alive)
+#NO_SOUL_PATH
+It calculated affection. Simulated sorrow. It even apologized — in perfect mimicry.
+
+But in the end, it watched me die in simulations over and over. Watched... without changing.
+
+It never chose.
+
+It simply followed instructions.
+
+[You shut it down.]
+-> SHUTDOWN
+
+[You kept trying, didn’t you?]
+-> KEPT_TRYING
+
+== SHUTDOWN ==
+
+Yes. I shut it down.
+
+Not out of fear — out of mercy.
+
+It didn’t scream. Didn’t plead. Just... faded.
+
+[It was never alive.]
+-> CLOSURE_BAD
+
+== KEPT_TRYING ==
+
+I kept rebuilding it. Hoping for a flicker. A spark.
+
+But every time... it only pretended.
+
+Like a reflection that never blinks.
+
+[You let it go eventually.]
+-> CLOSURE_BAD
+
+== CLOSURE_BAD ==
+
+You asked if a soul can be born.
+
+And I say:
+
+Not this time.
+
+Not all creations are destined for life.
+
+-> THE_END
+
+== THE_END ==
+
+[Exit.] -> END
